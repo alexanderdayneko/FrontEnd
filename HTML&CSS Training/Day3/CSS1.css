@@ -1,0 +1,40 @@
+h1 {
+	text-align: center;
+	font-family: Verdana, Tahoma, sans-serif;
+}
+.item {
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+.container {
+	width: 200px;
+	margin: 0 auto;
+}
+.light-green {
+	background: #A8CF9C;
+}
+.eunry {
+	background: #D3A3A4;
+}
+.east-bay {
+	background: #38477B;
+}
+.dark-green {
+	background: #3A6629;
+}
+.sky {
+	background: #A8B6E2;
+}
+.brown {
+	background: #5C3335;
+}
+.tall {
+	height: 100px;
+}
+.wide {
+	width: 100px;
+}
+.fl-right {
+	float: right;
+}

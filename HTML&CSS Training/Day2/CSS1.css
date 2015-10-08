@@ -1,0 +1,74 @@
+body {
+	background: url(images/tweed.png);
+	font-family: 'Roboto Condensed', sans-serif;
+}
+h1 {
+	color: #fff;
+}
+h2 {
+	background: #50cddf;
+	padding: 10px;
+	border-radius: 5px;
+	margin: 0px 0 10px 0;
+}
+h3 {
+	background: #b8dde0;
+	margin: 10px 0;
+	padding: 8px 5px 8px 20px;
+}
+h3:first-of-type {
+	margin-top: 0;
+}
+p {
+	text-align: justify;
+	padding: 5px 20px;
+}
+li {
+	font-style: italic;
+	list-style-type: square;
+}
+table {
+	border-collapse: collapse;
+}
+td {
+	padding: 5px 30px 10px 5px;
+}
+tr {
+	border-bottom: 1px solid #ccc;
+}
+#wrapper {
+	width: 600px; 
+	margin: 0 auto; 
+	background: url(images/paper_fibers.png);
+	box-shadow: 1px 1px 4px #000;
+}
+.left-column {
+	float: left;		
+	width: 370px;
+}
+.right-column {
+	float: right;
+	width: 190px;
+}
+
+.info-container {
+	width: 100%;
+}
+.container {
+	height: 170px;	
+	padding: 20px;
+}
+#profile-pic {
+	float: right;
+	margin: 0 auto;
+	border: 10px solid #dedede;
+	border-radius: 3px;
+}
+#contacts-table {
+	float: left;
+}
+#contacts-img {
+	float: right;
+	margin-left: 15px;
+	margin-top: 15px;
+}

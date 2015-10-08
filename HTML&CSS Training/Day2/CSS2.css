@@ -1,0 +1,42 @@
+h1 {
+	border-bottom: 3px solid #44CCAA;
+	color: #444;
+	margin-bottom: 8px;
+	margin-left: 8px;
+	font-family: Calibri, Tahoma, serif;
+}
+table {
+	border-collapse: collapse;
+}
+th,td {
+	border: 1px solid #ddd;
+	padding: 5px;
+}
+td {
+	background: #CCEEFF;
+	text-align: left;
+	font-size: 14px;
+	padding-left: 50px;
+}
+th {
+	background: #EEFFEE;
+	text-align: left;
+	padding: 5px 5px;
+}
+tfoot td {
+	background: #CCEEEE;
+}
+tfoot th, thead th {
+	color: #0000FF;
+}
+tr th:first-of-type {
+	padding-right: 10px;
+}
+tfoot > tr:first-child td {
+	border-top: 3px solid #77AA77;
+}
+.units {
+	color: #808080;
+	font-style: italic;
+	font-size: 14px;
+}

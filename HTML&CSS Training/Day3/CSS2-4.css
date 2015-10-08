@@ -1,0 +1,66 @@
+h1 {
+	text-align: center;
+	font-family: Verdana, Tahoma, sans-serif;
+}
+nav {
+	height: 40px;
+	clear: both;
+}
+.mainmenu {
+	background: #000;
+	list-style: none;
+	display: block;
+	padding-left: 0;
+	height: 40px;
+}
+ul.mainmenu li a {
+	display: block;
+	color: #FFF;
+	text-decoration: none;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 10px;
+}
+ul.mainmenu > li {
+	float: left;
+	border-right: 1px solid #444;
+	position: relative;
+}
+li ul.vertical-pd {
+	display: none;
+	background: #444;
+	position: absolute;
+	top: 100%;
+	width: 150px;
+	padding-left: 0;
+	list-style: none;
+}
+li ul.vertical-pd li {
+	display: block;
+	float: none;
+	border-bottom: 1px solid #555;
+}
+li ul.horizontal-pd {
+	display: none;
+	list-style: none;
+	height: 40px;
+	width: 100%;
+	background: #444;
+	position: absolute;
+	left: 0;
+	padding-left: 0;
+}
+ul.mainmenu > li.horizontal-pd-container {
+	position: static;
+}
+li ul.horizontal-pd li {
+	display: block;
+	float: left;
+	border-right: 1px solid #555;
+}
+ul.mainmenu li a:hover {
+	background: #222;
+}
+ul.mainmenu li:hover ul {
+	display: block;
+}
