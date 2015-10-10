@@ -1,3 +1,4 @@
-# Task 1. Binary tree
-# Task 2. Table
-# Task 3. Doubly Linked List
+# Tasks
+1. Binary tree
+2. Table
+3. Doubly Linked List
