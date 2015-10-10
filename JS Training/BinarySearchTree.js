@@ -28,8 +28,8 @@ BinarySearchTree.prototype.AddNode = function(data) {
 			this.root = new Node(arguments[i]);
 		else {
 			var data = arguments[i];
-			(function addNode(currNode){
-				if(data < currNode.data){
+			(function addNode(currNode) {
+				if(data < currNode.data) {
 					if(currNode.left === null)
 						currNode.left = new Node(data, currNode);
 					else
@@ -47,20 +47,38 @@ BinarySearchTree.prototype.AddNode = function(data) {
 	return this;
 };
 
-BinarySearchTree.prototype.GetMax = function() {
+BinarySearchTree.prototype.PrintMax = function() {
 	var node = this.root;
 	while(node.right != null)
 		node = node.right;
 	console.log("Max tree element: " + node.data);
-}
+};
 
-BinarySearchTree.prototype.GetMin = function() {
+BinarySearchTree.prototype.PrintMin = function() {
 	var node = this.root;
 	while(node.left != null)
 		node = node.left;
 	console.log("Min tree element: " + node.data);
-}	
-var tree = new BinarySearchTree();
-tree.AddNode(20,8,25,7,11,3,9,10)
-tree.GetMax();
-tree.GetMin();
+};	
+
+function extend(child, parent) {
+	var Temp = function(){};
+	Temp.prototype = parent.prototype;
+	child.prototype = new Temp();
+	child.prototype.constructor = child;
+	child.superclass = parent.prototype;
+	return child;
+};
+
+var NewBinarySearchTree = function() {
+	BinarySearchTree.apply(this,arguments);
+};
+
+
+
+extend(NewBinarySearchTree, BinarySearchTree);
+
+var tree = new NewBinarySearchTree(); //creating new tree
+tree.AddNode(20,8,25,7,11,-8,3,9,10,0)
+tree.PrintMax();
+tree.PrintMin();
