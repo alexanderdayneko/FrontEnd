@@ -6,13 +6,18 @@ function Node(data, parent) {
 	return this;
 };
 
-function BinarySearchTree() {
+function BinaryTree() {
 	this.root = null;
 };
 
-BinarySearchTree.prototype.GetNode = function(data) {
+function NewBinaryTree() {
+	this.root = null;
+};
+
+BinaryTree.prototype.getNode = function(data) {
 	var node = this.root;
 	var get = function(node) {
+		if(node === null) return null;
 		if (data === node.data)
 			return node;
 		else if(data > node.data)
@@ -20,9 +25,9 @@ BinarySearchTree.prototype.GetNode = function(data) {
 		else return get(node.left);
 	}
 	return get(node);
-}
+};
 
-BinarySearchTree.prototype.AddNode = function(data) {
+BinaryTree.prototype.addNode = function(data) {
 	for(var i = 0; i < arguments.length; i++) {
 		if(this.root === null)
 			this.root = new Node(arguments[i]);
@@ -47,19 +52,49 @@ BinarySearchTree.prototype.AddNode = function(data) {
 	return this;
 };
 
-BinarySearchTree.prototype.PrintMax = function() {
-	var node = this.root;
-	while(node.right != null)
-		node = node.right;
-	console.log("Max tree element: " + node.data);
+BinaryTree.prototype.traverseInOrder = function() {
+	function traverse(node){
+		if(node.left !== null){
+			traverse(node.left);
+		}
+		console.log(node.data)
+		if(node.right !== null){
+			traverse(node.right);
+		}
+	}
+	traverse(this.root);
 };
 
-BinarySearchTree.prototype.PrintMin = function() {
-	var node = this.root;
-	while(node.left != null)
-		node = node.left;
-	console.log("Min tree element: " + node.data);
-};	
+NewBinaryTree.prototype.deleteNode = function(data){
+	var node = this.getNode(data);
+	if(node !== null) {
+		//for element without childs
+		if(node.left === null && node.right === null){
+			if(node.parent.left === node)
+				node.parent.left = null;
+				else
+				node.parent.right = null;
+		}
+		//for element with two childs
+
+
+		//for element without left child
+		else if(node.left === null){
+			if(node.parent.left === node)
+				node.parent.left = node.right;
+			else 
+				node.parent.right = node.right;
+		}
+		//for element without right child
+		else if(node.right === null){
+		if(node.parent.left === node)
+			node.parent.left = node.left;
+		else 
+			node.parent.right = node.left;
+		}	
+	}	
+	return this;
+};
 
 function extend(child, parent) {
 	var Temp = function(){};
@@ -70,15 +105,13 @@ function extend(child, parent) {
 	return child;
 };
 
-var NewBinarySearchTree = function() {
-	BinarySearchTree.apply(this,arguments);
+var NewBinaryTree = function() {
+	BinaryTree.apply(this,arguments);
 };
 
+extend(NewBinaryTree, BinaryTree);
 
+var tree = new NewBinaryTree(); //creating new tree
+tree.addNode(20,8,25,7,11,-8,3,9,10,0)
+tree.traverseInOrder();
 
-extend(NewBinarySearchTree, BinarySearchTree);
-
-var tree = new NewBinarySearchTree(); //creating new tree
-tree.AddNode(20,8,25,7,11,-8,3,9,10,0)
-tree.PrintMax();
-tree.PrintMin();
