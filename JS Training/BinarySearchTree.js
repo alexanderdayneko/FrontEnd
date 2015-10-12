@@ -10,9 +10,6 @@ function BinaryTree() {
 	this.root = null;
 };
 
-function NewBinaryTree() {
-	this.root = null;
-};
 
 BinaryTree.prototype.getNode = function(data) {
 	var node = this.root;
@@ -65,6 +62,21 @@ BinaryTree.prototype.traverseInOrder = function() {
 	traverse(this.root);
 };
 
+var NewBinaryTree = function() {
+	BinaryTree.apply(this,arguments);
+};
+
+function extend(child, parent) {
+	var Temp = function(){};
+	Temp.prototype = parent.prototype;
+	child.prototype = new Temp();
+	child.prototype.constructor = child;
+	child.superclass = parent.prototype;
+	return child;
+};
+
+extend(NewBinaryTree, BinaryTree);
+
 NewBinaryTree.prototype.deleteNode = function(data){
 	var node = this.getNode(data);
 	if(node !== null) {
@@ -95,21 +107,6 @@ NewBinaryTree.prototype.deleteNode = function(data){
 	}	
 	return this;
 };
-
-function extend(child, parent) {
-	var Temp = function(){};
-	Temp.prototype = parent.prototype;
-	child.prototype = new Temp();
-	child.prototype.constructor = child;
-	child.superclass = parent.prototype;
-	return child;
-};
-
-var NewBinaryTree = function() {
-	BinaryTree.apply(this,arguments);
-};
-
-extend(NewBinaryTree, BinaryTree);
 
 var tree = new NewBinaryTree(); //creating new tree
 tree.addNode(20,8,25,7,11,-8,3,9,10,0)
